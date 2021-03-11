@@ -6,12 +6,15 @@ module Exercise
 
       # Написать свою функцию my_each
       def my_each
-        i = 0
-        while size > i
-          yield self[i]
-          i += 1
-        end
-        # Альтернативное решение
+        size.times { |index| yield self[index] }
+
+        # Альтернативное решение 1
+        # i = 0
+        # while size > i
+        #  yield self[i]
+        #  i += 1
+        # end
+        # Альтернативное решение 2
         # each { |item| yield(item) }
         self
       end
