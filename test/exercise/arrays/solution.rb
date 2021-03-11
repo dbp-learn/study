@@ -10,13 +10,18 @@ module Exercise
       def my_bisearch(array, query, left, right)
         middle = (left + (right - left) / 2).to_i
 
-        return middle if array[middle] == query
+        middle_value = array[middle]
 
-        return -1 if left == right
-
-        return my_bisearch(array, query, left, middle) if array[middle] > query
-
-        my_bisearch(array, query, middle + 1, right)
+        if left == right && middle_value != query
+          return -1
+        else if middle_value == query
+          middle
+        else if middle_value > query
+          my_bisearch(array, query, left, middle)
+        else
+        # when middle_value < query
+          my_bisearch(array, query, middle + 1, right)
+        end
       end
 
       def search(array, query)
