@@ -11,15 +11,14 @@ module Exercise
         middle = (left + (right - left) / 2).to_i
 
         middle_value = array[middle]
-
         if left == right && middle_value != query
-          return -1
-        else if middle_value == query
+          -1
+        elsif middle_value == query
           middle
-        else if middle_value > query
+        elsif middle_value > query
           my_bisearch(array, query, left, middle)
         else
-        # when middle_value < query
+          # if middle_value < query
           my_bisearch(array, query, middle + 1, right)
         end
       end
